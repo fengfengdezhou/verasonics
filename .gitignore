@@ -1,2 +1,62 @@
-stim_debug_workspace.mat
-ProbeConnectorStatus.p VerasonicsVerificationTest.p Version.p activate.p importLicenseKey.p reprogramHardware.p systemInfo.p
+# ========== MATLAB 相关缓存/临时文件 ==========
+*.asv
+*.m~
+*.fig
+*.slx.autosave
+*.sldd.autosave
+*.mdl.autosave
+simulink cache/
+slprj/
+*.slxc
+*.sldo
+*.mltbx
+*.mlappinstall
+*.p
+*.mex*
+# MATLAB 工作区数据文件（核心超大文件源头）
+*.mat
+*.mat.bak
+# 日志、输出缓存
+*.log
+*.out
+*.txt.tmp
+
+# ========== 二进制可执行文件 ==========
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.elf
+*.o
+*.obj
+
+# ========== 实验原始数据文件夹（你项目的MatFiles） ==========
+MatFiles/
+RawData/
+Data/
+Dataset/
+TempData/
+HardwareTest/temp/
+stim_debug_workspace.*
+
+# ========== 音视频、压缩包（极易超大） ==========
+*.mp4
+*.avi
+*.mov
+*.wav
+*.flac
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+
+# ========== 系统无关文件 ==========
+# Windows
+Thumbs.db
+.DS_Store
+# Mac
+._*
+.DS_Store
