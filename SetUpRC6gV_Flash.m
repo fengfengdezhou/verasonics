@@ -22,7 +22,7 @@ clear all
 P.startDepth = 0;   % Acquisition depth in wavelengths
 P.endDepth = 192;   % EndDepth in wavelengths
 
-ReconRegion=5;这个药品思考一下
+ReconRegion=5;这个药品思考一下edasdas
 xyplane=100; % XY plane for reconstruction (in waveleghts)
 
 % Define system parameters.
