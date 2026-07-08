@@ -1,0 +1,23 @@
+============================================
+         Vantage Verification Test 
+============================================
+Test Date/Time: 08-Jul-2026 15:30:22
+ 
+SOFTWARE:  4.9.7
+SW Build:  2505271400
+HOSTNAME:  DESKTOP-N9ED8B9
+MATLAB:    2021b
+OS:        Microsoft Windows 10 ???
+ 
+Open Hardware Test
+--------------------------------------------
+Failed to communicate with the Vantage Hardware.Host PCI adapter card is not being detected.
+Please verify the Host Adapter card is properly installed.
+Connect to ASC:                         FAIL
+
+============================================
+
+*************   TEST FAILED   **************
+
+============================================
+

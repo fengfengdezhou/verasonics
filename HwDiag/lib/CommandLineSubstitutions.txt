@@ -1,0 +1,122 @@
+# Copyright 2001-2017 Verasonics, Inc.  All world-wide rights and remedies under all intellectual property laws and industrial property laws are reserved.  Verasonics Registered U.S. Patent and Trademark Office.
+# 
+# CommandLineSubstitutions.txt - A file that contains textual replacement
+# for command line arguments given to HwDiag.
+# 
+# Lines that begin with # are comment lines.
+    # Whitespace may proceed a comment character.
+# 
+# Do not use blank (empty) lines.
+# 
+# All other lines are considered to be a single substitution specification.
+# The first word is the shortcut word.  The rest of the line is the text
+# that the shortcut word represents.  Whitespace between the argument and
+# its substitution is ignored.  (Whitespace is spaces or tabs.)  Example:
+#   bdg BoardsDetectedGet
+#   bdg       BoardsDetectedGet
+# 
+# Argument substitutions allow you to type less when issue an HwDiag command.
+# For example, by using the following line,
+#   bdg BoardsDetectedGet
+# one may type "hwdiag bdg" instead of "hwdiag boardsdetectedget".
+# 
+# When HwDiag runs, it takes its command line arguments and looks at each one
+# in turn.  If an argument is found as one of the entries in this file
+# (the first word on a line), then HwDiag will substitute the rest of that
+# line for that matched argument.
+# 
+# So, for the example above, "hwdiag bgd" considered "bgd" and found its
+# entry in this file and replaced "bgd" with "boardsdetectedget".
+# 
+# The comparison of the substitution keyword (e.g. "bgd") is done case
+# insensitively, so "hwdiag BGD", "hwdiag bGd", and "hwdiag bgd" all result
+# in "hwdiag boardsdetectedget".
+# 
+# Note that each argument is considered and each argument can be expanded
+# to one or more strings.  This allows complex substitutions.  Here are
+# some more examples.
+# 
+# "HwDiag BoardRead 8 0 0 0 3" is used to read from Board 8 (ASC) Chip 0
+# BAR 0 Offset 0 and it reads 3 DWORD's there.  We could use
+# "hwdiag br asc 0 0 0 3" if this file contained these two substitutions:
+#   "br BoardRead"
+#   "asc 8"
+# We could simplify more with a multi argument replacement.  We could type
+# "hwdiag bra" if this file contained this substitution:
+#   "bra BoardRead 8 0 0 0 3"
+# 
+# Use substitutions to map long filenames to simple references.
+# "hwdiag MiniBoardFlashProgram ASC -1 "C:\Users\MyAccount\Desktop\Asc0.bin""
+# could be shortend to
+# "hwdiag flash asc -1 Asc0"
+# if this file contained these substitutions:
+#   "flash MiniBoardFlashProgram"
+#   "asc0 "C:\Users\MyAccount\Desktop\Asc0.bin""
+# 
+# If there are duplicate entries, the first matching entry in this file is used.
+# E.g.,
+#   "BR BoardRead"
+#   "BR BoardReset"
+# "hwdiag br" would result in "hwdiag BoardRead". 
+# 
+# Use the single quote character (') (near the ENTER key on the keyboard) to
+# excempt an argument from consideration for substitutions.  For example,
+# "HwDiag BoardRead 8 0 0 0 3" may be desired to be enhanced to instead type
+# "HwDiag BoardRead asc 0 0 0 3" using the following argument substitution line:
+# "asc 8".  That substitution line is not desireable for when "asc" needs to
+# be literal, as in "HwDiag MiniBoardFlashProgram ASC".  If you desire the
+# "asc 8" substitution but need to enter literal ASC string, then use the
+# single quote to exempt an argument, as in:  "HwDiag MiniBoardFlashProgram 'ASC"
+# 
+# A substitution string that has spaces in it should be enclosed with double
+# quotes (").  For example, suppose you want to shorten this command:
+# "HwDiag CommandLineSubstitutions FileNameSet "C:\Program Files\Verasonics\HwDiag\Input\CommandLineSubstitutions.txt"
+# to this:
+# "HwDiag clss"
+# Do so by giving this argument substitution string:
+#   "clss = CommandLineSubstitutions FileNameSet "C:\Program Files\Verasonics\HwDiag\Input\CommandLineSubstitutions.txt""
+# 
+# Substitutions are NON recursive.  In other words, the substitution string
+# given below will NOT be inspected for further substitutions.
+# 
+# If an argument is given below, it must have a substitution.  For example,
+# it would be invalid to give an argument substitution line of "dummy    ".
+# 
+# You can use substitutions to make register offsets be accessed via descriptive
+# text.  For example, use the argument substitution line of "ProgCtrl 4"
+# to be able to type "HwDiag MicroRead ASC 0 ProgCtrl" instead of
+# "HwDiag MicroRead ASC 0 4".
+# 
+# Here are the substitutions this file specifies.
+BR BoardRead
+BRC BoardReadContinuous
+BSD BoardSequenceDecode
+BW BoardWrite
+BWL BoardWriteLine
+BWLC BoardWriteLineContinuous
+BCC BoardsCgdsCalibrate
+BDG BoardsDetectedGet
+BF BoardsFaults
+BMD BoardsMemoryDiff
+BMF BoardsMemoryFill
+BRFF BoardsReadFromFile
+Reset BoardsReset
+Rev BoardsRevisions
+BTM BoardsTestMemory
+BWFF BoardsWriteFromFile
+CLS CommandLineSubstitutions
+HOR HalOwnershipRelease
+HQ HalQuery
+IM InteractiveMode
+McR MicroRead
+McRD MicroRegistersDump
+McW MicroWrite
+MnBFP MiniBoardFlashProgram
+MnFR MiniFpgasReload
+MnR MiniRead
+MnW MiniWrite
+SPD SequenceProfileDma
+STD SequenceTestDma
+STI SequenceTestInterrupt
+SSPG ShiScanheadPersonalityGet
+SI SwitchesInfo

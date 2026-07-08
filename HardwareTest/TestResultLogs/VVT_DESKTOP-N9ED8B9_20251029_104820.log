@@ -1,0 +1,4 @@
+10:48:20.385030 src/VV_MatlabAdapterImpl.c initializeMatlabAdapter() Line:86 WARN: "Failed to find the specified folder for Matlab:C:\Program Files\MATLAB\R2021b\bin\win64\"
+10:48:20.385090 src/runAcq.c initializeMatlabAdapter() Line:19569 WARN: "Matlab adapter could not be initialized."
+10:48:22.940387 src/WDHA_PciDevice.c WDHA_OpenPciSwitch() Line:566 WARN: "Driver failed to find any PCI switches for vendor:0x10B5 and device:0x8725."
+10:48:22.940435 src/VH_HardwareImpl.cpp openHardwareForThisProcess() Line:350 WARN: "Failed to open the Vantage hardware because the host PCI Switch could not be opened."
